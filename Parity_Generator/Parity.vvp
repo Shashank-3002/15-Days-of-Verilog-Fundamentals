@@ -1,0 +1,35 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_00000248fcbc65c0 .scope module, "even_parity_check" "even_parity_check" 2 10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "data";
+    .port_info 1 /INPUT 1 "parity";
+    .port_info 2 /OUTPUT 1 "error";
+v00000248fcbc6d50_0 .net *"_ivl_0", 4 0, L_00000248fcbf6960;  1 drivers
+o00000248fcbfb008 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v00000248fcbc6f70_0 .net "data", 3 0, o00000248fcbfb008;  0 drivers
+v00000248fcbaeec0_0 .net "error", 0 0, L_00000248fcbf6a00;  1 drivers
+o00000248fcbfb068 .functor BUFZ 1, C4<z>; HiZ drive
+v00000248fcba7240_0 .net "parity", 0 0, o00000248fcbfb068;  0 drivers
+L_00000248fcbf6960 .concat [ 1 4 0 0], o00000248fcbfb068, o00000248fcbfb008;
+L_00000248fcbf6a00 .reduce/xor L_00000248fcbf6960;
+S_00000248fcbc6750 .scope module, "even_parity_gen" "even_parity_gen" 2 2;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "data";
+    .port_info 1 /OUTPUT 1 "parity";
+o00000248fcbfb128 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v00000248fcbc68e0_0 .net "data", 3 0, o00000248fcbfb128;  0 drivers
+v00000248fcbc6980_0 .net "parity", 0 0, L_00000248fcbf6aa0;  1 drivers
+L_00000248fcbf6aa0 .reduce/xor o00000248fcbfb128;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Parity.v";
