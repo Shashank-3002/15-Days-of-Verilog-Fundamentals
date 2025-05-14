@@ -1,0 +1,42 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_0000023eb5c265c0 .scope module, "binary_to_gray" "binary_to_gray" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "bin";
+    .port_info 1 /OUTPUT 4 "gray";
+L_0000023eb5c269d0 .functor XOR 1, L_0000023eb5c9c180, L_0000023eb5c9bd20, C4<0>, C4<0>;
+L_0000023eb5c57e50 .functor XOR 1, L_0000023eb5c9bfa0, L_0000023eb5c9c720, C4<0>, C4<0>;
+L_0000023eb5c57ec0 .functor XOR 1, L_0000023eb5c9bf00, L_0000023eb5c9c220, C4<0>, C4<0>;
+v0000023eb5c26d50_0 .net *"_ivl_10", 0 0, L_0000023eb5c269d0;  1 drivers
+v0000023eb5c26750_0 .net *"_ivl_15", 0 0, L_0000023eb5c9bfa0;  1 drivers
+v0000023eb5c267f0_0 .net *"_ivl_17", 0 0, L_0000023eb5c9c720;  1 drivers
+v0000023eb5c26890_0 .net *"_ivl_18", 0 0, L_0000023eb5c57e50;  1 drivers
+v0000023eb5c26930_0 .net *"_ivl_24", 0 0, L_0000023eb5c9bf00;  1 drivers
+v0000023eb5c57970_0 .net *"_ivl_26", 0 0, L_0000023eb5c9c220;  1 drivers
+v0000023eb5c57a10_0 .net *"_ivl_27", 0 0, L_0000023eb5c57ec0;  1 drivers
+v0000023eb5c57ab0_0 .net *"_ivl_3", 0 0, L_0000023eb5c9c360;  1 drivers
+v0000023eb5c57b50_0 .net *"_ivl_7", 0 0, L_0000023eb5c9c180;  1 drivers
+v0000023eb5c57c80_0 .net *"_ivl_9", 0 0, L_0000023eb5c9bd20;  1 drivers
+o0000023eb5c5b1b8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0000023eb5c57d20_0 .net "bin", 3 0, o0000023eb5c5b1b8;  0 drivers
+v0000023eb5c9c680_0 .net "gray", 3 0, L_0000023eb5c9be60;  1 drivers
+L_0000023eb5c9c360 .part o0000023eb5c5b1b8, 3, 1;
+L_0000023eb5c9c180 .part o0000023eb5c5b1b8, 3, 1;
+L_0000023eb5c9bd20 .part o0000023eb5c5b1b8, 2, 1;
+L_0000023eb5c9bfa0 .part o0000023eb5c5b1b8, 2, 1;
+L_0000023eb5c9c720 .part o0000023eb5c5b1b8, 1, 1;
+L_0000023eb5c9be60 .concat8 [ 1 1 1 1], L_0000023eb5c57ec0, L_0000023eb5c57e50, L_0000023eb5c269d0, L_0000023eb5c9c360;
+L_0000023eb5c9bf00 .part o0000023eb5c5b1b8, 1, 1;
+L_0000023eb5c9c220 .part o0000023eb5c5b1b8, 0, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "BinarytoGray.v";
