@@ -1,8 +1,8 @@
-# 🔧 15 Days of Verilog Fundamentals
+# 🔌 Verilog HDL Essentials – From Basics to Simulation
 
-Welcome to **15 Days of Verilog Fundamentals** – a learning and sharing challenge aimed at mastering the building blocks of digital logic design using **Verilog HDL**.
+Welcome to the **Verilog HDL Essentials** repository – **your one-stop guide** to understanding and simulating digital logic using Verilog HDL! Whether you're a beginner or brushing up on fundamentals, this guide will walk you through module creation, testbench writing, tool setup, and waveform visualization using industry-standard tools.
 
-Over 15 days, I’ll be implementing and simulating core digital components, ranging from simple logic gates to a complete ALU, using **Icarus Verilog**, **GTKWave**, and **VS Code**.
+In this repository, I’ll be implementing and simulating core digital components, ranging from simple logic gates to a complete ALU, using **Icarus Verilog**, **GTKWave**, and **VS Code**.
 
 > ⚡ **Follow along if you're an ECE student, a VLSI enthusiast, or diving into RTL Design!**
 
@@ -27,27 +27,55 @@ To build a strong foundation in digital design by:
 
 ---
 
-## 📅 15-Day Challenge Schedule
+# 📀 Verilog Module Structure
 
-| Day | Topic | Description |
-|-----|-------|-------------|
-| 1   | Hello, Verilog! | First Verilog simulation with display statements |
-| 2   | Logic Gates | Implement AND, OR, NOT, NAND, NOR, XOR, XNOR |
-| 3   | Half Adder | Design and simulate a half adder |
-| 4   | Full Adder | Gate-level and dataflow modeling of a full adder |
-| 5   | 4-Bit Ripple Carry Adder | Build a 4-bit RCA using full adders |
-| 6   | Multiplexer (4:1) | Implement and simulate a 4:1 multiplexer |
-| 7   | Decoder (2:4) | Create a 2-to-4 decoder using Verilog |
-| 8   | Comparator | Build a 2-bit comparator circuit |
-| 9   | Priority Encoder | Implement an 8-to-3 priority encoder |
-| 10  | Gray to Binary Converter | Convert Gray code to binary format |
-| 11  | Parity Generator & Checker | Design circuits for even and odd parity |
-| 12  | D Flip-Flop | Implement D flip-flop with async reset |
-| 13  | T Flip-Flop | Create and simulate a T flip-flop |
-| 14  | 4-bit Counter | Implement a 4-bit up/down counter |
-| 15  | 4-bit ALU | Build a 4-bit Arithmetic Logic Unit supporting multiple operations |
+```verilog
+module module_name (
+    input wire a,
+    input wire b,
+    output wire y
+);
+    // Example logic
+    assign y = a & b;
+endmodule
+```
 
 ---
+
+## 🧪 Writing a Testbench
+
+```verilog
+`timescale 1ns/1ps
+
+module module_name_tb;
+    reg a, b;
+    wire y;
+
+    module_name uut (
+        .a(a),
+        .b(b),
+        .y(y)
+    );
+
+    initial begin
+        $display("Testing module_name");
+        $monitor("a=%b, b=%b, y=%b", a, b, y);
+
+        a = 0; b = 0; #10;
+        a = 0; b = 1; #10;
+        a = 1; b = 0; #10;
+        a = 1; b = 1; #10;
+
+        $finish;
+    end
+
+    initial begin
+        $dumpfile("waveform.vcd");
+        $dumpvars(0, module_name_tb);
+    end
+endmodule
+```
+
 
 ## 📚 Learning Outcomes
 
